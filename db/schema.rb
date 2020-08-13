@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_13_110024) do
+ActiveRecord::Schema.define(version: 2020_08_13_125729) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 2020_08_13_110024) do
   create_table "doses", force: :cascade do |t|
     t.string "description"
     t.bigint "cocktail_id", null: false
+    t.bigint "ingredient_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "ingredient_id", null: false
     t.index ["cocktail_id"], name: "index_doses_on_cocktail_id"
     t.index ["ingredient_id"], name: "index_doses_on_ingredient_id"
   end
@@ -38,7 +38,7 @@ ActiveRecord::Schema.define(version: 2020_08_13_110024) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "content"
+    t.text "content"
     t.integer "rating"
     t.bigint "cocktail_id", null: false
     t.datetime "created_at", precision: 6, null: false
