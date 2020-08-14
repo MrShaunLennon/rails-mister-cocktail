@@ -3,7 +3,7 @@
 
 #banner {
   text-align: center;
-  background-image: url('amazing-b.jpg');
+  background-image: url('amazing-bar.jpg');
   color: white;
   background-size: cover;
   background-position: center;
@@ -17,7 +17,8 @@
 }
 
 .card {
-
+  display: flex;
+  flex-direction: row;
 }
 
 .cocktail-name {
