@@ -1,21 +1,17 @@
 class DosesController < ApplicationController
   def new
-    @doses = Dose.new
-  end
-
-  def show
-
+    @cocktail = Cocktail.find(params[:cocktail_id])
+    @dose = Dose.new
   end
 
   def create
-    @dose = Dose.new(dose_params)
     @cocktail = Cocktail.find(params[:cocktail_id])
+    @dose = Dose.new(dose_params)
     @dose.cocktail = @cocktail
     if @dose.save
       redirect_to cocktail_path(@cocktail)
     else
-      flash[:alert] = 'Please provide a description and ingredient'
-      redirect_to cocktail_path(@cocktail)
+      render 'cocktails/show'
     end
   end
 
