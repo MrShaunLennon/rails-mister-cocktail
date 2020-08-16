@@ -21,6 +21,14 @@ class DosesController < ApplicationController
     redirect_to cocktail_path(@dose.cocktail)
   end
 
+  def index
+    @doses = Dose.all
+  end
+
+  def show
+    @doses = Dose.find(params[:id])
+  end
+
   private
 
   def dose_params
